@@ -21,6 +21,7 @@
 		1EB9BADE2B0F4D0500B72EA8 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB9BADD2B0F4D0500B72EA8 /* FirebaseDatabaseSwift */; };
 		1EB9BAE12B0F4F9900B72EA8 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB9BAE02B0F4F9900B72EA8 /* AddNoteView.swift */; };
 		1EB9BAE32B0F4FD000B72EA8 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB9BAE22B0F4FD000B72EA8 /* AddNoteViewModel.swift */; };
+		1EB9BB582B0FB69600B72EA8 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB9BB572B0FB69600B72EA8 /* Content.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		1EB9BAD42B0F4C8400B72EA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EB9BAE02B0F4F9900B72EA8 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		1EB9BAE22B0F4FD000B72EA8 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		1EB9BB572B0FB69600B72EA8 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,8 @@
 				1E7BD6982B0E35B300BA7B85 /* HoangAnhNotesApp.swift */,
 				1E7BD69A2B0E35B300BA7B85 /* ContentView.swift */,
 				1E7BD69C2B0E35B700BA7B85 /* Assets.xcassets */,
-				1EB9BADF2B0F4F6C00B72EA8 /* AddNote */,
+				1EB9BB562B0FB37D00B72EA8 /* Model */,
+				1EB9BADF2B0F4F6C00B72EA8 /* AddContentNote */,
 				1E7BD69E2B0E35B700BA7B85 /* Preview Content */,
 			);
 			path = HoangAnhNotes;
@@ -143,13 +146,21 @@
 			path = HoangAnhNotesUITests;
 			sourceTree = "<group>";
 		};
-		1EB9BADF2B0F4F6C00B72EA8 /* AddNote */ = {
+		1EB9BADF2B0F4F6C00B72EA8 /* AddContentNote */ = {
 			isa = PBXGroup;
 			children = (
 				1EB9BAE02B0F4F9900B72EA8 /* AddNoteView.swift */,
 				1EB9BAE22B0F4FD000B72EA8 /* AddNoteViewModel.swift */,
 			);
-			path = AddNote;
+			path = AddContentNote;
+			sourceTree = "<group>";
+		};
+		1EB9BB562B0FB37D00B72EA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1EB9BB572B0FB69600B72EA8 /* Content.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 				1EB9BAE32B0F4FD000B72EA8 /* AddNoteViewModel.swift in Sources */,
 				1EB9BAE12B0F4F9900B72EA8 /* AddNoteView.swift in Sources */,
 				1E7BD69B2B0E35B300BA7B85 /* ContentView.swift in Sources */,
+				1EB9BB582B0FB69600B72EA8 /* Content.swift in Sources */,
 				1E7BD6992B0E35B300BA7B85 /* HoangAnhNotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

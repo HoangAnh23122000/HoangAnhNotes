@@ -18,16 +18,23 @@ struct AddNoteView: View {
     var body: some View {
         VStack {
             TextEditor(text: $content)
-                .frame(width: .infinity, height: 50)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .padding()
+                .background(Color.red.opacity(0.2))
+                .foregroundColor(Color.gray)
                 .padding()
             
             Button {
                 viewModel.saveNewContent(value: content)
             } label: {
                 Text("Save")
+//                    .offset(x:20 , y: 32)
+//                    .frame(width: .infinity, height: .infinity)
+//                    .background(Color.purple)
                     .padding()
             }
-        }.frame(width: .infinity, alignment: .top)
+        }
+        .frame(width: .infinity, alignment: .top)
     }
 }
 
