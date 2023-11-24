@@ -21,12 +21,14 @@ struct AddNoteView: View {
                 .disableAutocorrection(true)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 .padding()
-                .background(Color.gray.opacity(0.08))
+                .background(Color.black.opacity(0.08))
                 .foregroundColor(Color.gray)
                 .padding()
             
             Button {
                 viewModel.saveNewContent(value: content)
+                
+                content = ""
             } label: {
                 Text("Save To Your Notes List")
                     .foregroundColor(Color.white)
@@ -34,17 +36,21 @@ struct AddNoteView: View {
                     .frame(minWidth: 0, maxWidth: .infinity,minHeight: 50, maxHeight: 50)
                     .background(Color.purple)
                     .cornerRadius(80)
-
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 80)
+                            .stroke(Color.black, lineWidth: 0.5)
+                    )
+                
             }
             .padding(.horizontal,20)
         }
         .background(
-        LinearGradient(gradient: Gradient(stops: [
-            Gradient.Stop(color: .white, location: 0.00),
-            Gradient.Stop(color: Color(red:0.88, green: 0.89, blue: 0.99), location: 1.00)
-        ])
-                       , startPoint: .top
-                       , endPoint: .bottom )
+            LinearGradient(gradient: Gradient(stops: [
+                Gradient.Stop(color: .white, location: 0.00),
+                Gradient.Stop(color: Color(red:0.88, green: 0.89, blue: 0.99), location: 1.00)
+            ])
+                           , startPoint: .top
+                           , endPoint: .bottom )
         )
     }
 }

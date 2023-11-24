@@ -19,6 +19,7 @@ class AddNoteViewModel: ObservableObject {
         content.id = String(number)
         content.value = value
         ref.childByAutoId().setValue(content.toDictionnary)
+        
         number+=1
     }
     
