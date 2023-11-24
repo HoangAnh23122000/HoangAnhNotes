@@ -23,7 +23,8 @@ struct ListContentNotesView: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             NavigationLink(destination: AddNoteView()) {
-                                Text("Tiếp")
+                                Text("Add Note")
+                                    .foregroundColor(Color.black)
                             }
                         }
                     }
@@ -35,11 +36,18 @@ struct ListContentNotesView: View {
                                 VStack {
                                     Spacer()
                                     Text(index.value)
+                                        .font(Font.custom("Poppins", size: 15))
+                                        .foregroundColor(Color(red:0.43, green: 0.46, blue: 0.57))
                                         .padding(.horizontal, 5)
                                         .padding(.trailing, 10)
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.red)
+                                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                                        .background(Color.white)
+                                        .cornerRadius(12)
                                         .lineLimit(nil)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.black, lineWidth: 0.5)
+                                        )
                                     Spacer()
                                 }
                             }
@@ -48,7 +56,16 @@ struct ListContentNotesView: View {
                     .padding()
                 }
             }
+            .background(
+            LinearGradient(gradient: Gradient(stops: [
+                Gradient.Stop(color: .white, location: 0.00),
+                Gradient.Stop(color: Color(red:0.88, green: 0.89, blue: 0.99), location: 1.00)
+            ])
+                           , startPoint: .top
+                           , endPoint: .bottom )
+            )
         }
+        .accentColor(.black)
     }
 }
 
