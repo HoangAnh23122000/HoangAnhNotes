@@ -23,7 +23,8 @@ struct HoangAnhNotesApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            AddNoteView()
+//            AddNoteView()
+            ListContentNotesView()
         }
     }
 }
