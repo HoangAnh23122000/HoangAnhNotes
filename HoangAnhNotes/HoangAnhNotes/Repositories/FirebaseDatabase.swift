@@ -37,4 +37,15 @@ class FirebaseDatabase {
         
         childRef.setValue(note.toDictionary)
     }
+    
+    func deleteNote(withId noteId: String) {
+        let noteRef = ref.child("notes").child(noteId)
+        noteRef.removeValue { error, _ in
+            if let error = error {
+                print("Error deleting note: \(error.localizedDescription)")
+            } else {
+                print("Note deleted successfully")
+            }
+        }
+    }
 }

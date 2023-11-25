@@ -18,6 +18,15 @@ struct NoteListView: View {
                         LazyVStack(spacing: 15) {
                             ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
                                 noteItem(viewModel.noteList[index])
+                                    .contextMenu{
+                                        Button {
+                                            viewModel.deleteNote(at: index)
+                                        } label: {
+                                            Text("Delete")
+                                            Image(systemName: "trash")
+                                        }
+
+                                    }
                             }
                         }
                         .padding()
@@ -64,7 +73,7 @@ struct NoteListView: View {
                 .padding(.trailing, 10)
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .background(Color.white)
-                .cornerRadius(12)
+                .cornerRadius(10)
                 .lineLimit(nil)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
