@@ -15,4 +15,9 @@ class NoteListViewModel: ObservableObject {
             self.noteList = noteList
         }
     }
+    
+    func deleteNote(at index: Int) {
+        let noteToDelete = noteList[index]
+        FirebaseDatabase.shared.deleteNote(withId: noteToDelete.id)
+    }
 }
