@@ -38,7 +38,7 @@ struct ListContentNotesView: View {
                                         .font(.system(size: 15))
                                         .frame(alignment: .leading)
                                         .padding(.leading, 5)
-                                    
+    
                                     Spacer()
                                     
                                     Text(index.value)
