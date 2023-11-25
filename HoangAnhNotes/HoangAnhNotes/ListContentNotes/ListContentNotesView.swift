@@ -30,13 +30,19 @@ struct ListContentNotesView: View {
                     }
                 
                 ScrollView {
-                    LazyVStack(spacing: -5) {
+                    LazyVStack(spacing: 15) {
                         if !viewModel.listContents.isEmpty {
                             ForEach(viewModel.listContents, id: \.self) { index in
-                                VStack {
+                                VStack(alignment: .leading) {
+                                    Text(index.date)
+                                        .font(.system(size: 15))
+                                        .frame(alignment: .leading)
+                                        .padding(.leading, 5)
+                                    
                                     Spacer()
+                                    
                                     Text(index.value)
-                                        .font(Font.custom("Poppins", size: 15))
+                                        .font(.system(size: 15))
                                         .foregroundColor(Color(red:0.43, green: 0.46, blue: 0.57))
                                         .padding(.horizontal, 5)
                                         .padding(.trailing, 10)
