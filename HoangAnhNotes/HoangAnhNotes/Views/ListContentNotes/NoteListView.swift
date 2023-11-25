@@ -1,5 +1,5 @@
 //
-//  ListContentNotesView.swift
+//  NoteListView.swift
 //  HoangAnhNotes
 //
 //  Created by Hoang Anh on 24/11/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ListContentNotesView: View {
+struct NoteListView: View {
     
-    @StateObject var viewModel = ListContentNotesViewModel()
+    @StateObject var viewModel = NoteListViewModel()
     
     init() {
         viewModel.observerListContent()
@@ -75,8 +75,8 @@ struct ListContentNotesView: View {
     }
 }
 
-struct ListContentNotesView_Previews: PreviewProvider {
+struct NoteListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListContentNotesView()
+        NoteListView()
     }
 }

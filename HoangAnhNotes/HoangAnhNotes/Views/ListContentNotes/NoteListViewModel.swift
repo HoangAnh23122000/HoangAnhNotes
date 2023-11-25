@@ -1,5 +1,5 @@
 //
-//  ListContentNotesViewModel.swift
+//  NoteListViewModel.swift
 //  HoangAnhNotes
 //
 //  Created by Hoang Anh on 24/11/2023.
@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 import FirebaseDatabaseSwift
 
-class ListContentNotesViewModel: ObservableObject {
+class NoteListViewModel: ObservableObject {
     
     private let ref = Database.database().reference()
     

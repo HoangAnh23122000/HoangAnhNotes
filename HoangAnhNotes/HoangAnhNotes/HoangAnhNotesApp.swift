@@ -24,7 +24,7 @@ struct HoangAnhNotesApp: App {
         WindowGroup {
 //            ContentView()
 //            AddNoteView()
-            ListContentNotesView()
+            NoteListView()
         }
     }
 }
