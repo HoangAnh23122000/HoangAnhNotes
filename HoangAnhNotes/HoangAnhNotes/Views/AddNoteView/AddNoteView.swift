@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct AddNoteView: View {
-    
-    @StateObject
-    var viewModel = AddNoteViewModel()
-    
-    @State
-    var content: String = ""
+    @StateObject private var viewModel = AddNoteViewModel()
+    @State private var content = ""
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(viewModel.getCurrentDate())
+            Text(viewModel.currentDateString)
                 .font(.system(size: 20))
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
@@ -32,7 +28,7 @@ struct AddNoteView: View {
                 .foregroundColor(Color.gray)
             
             Button {
-                viewModel.saveNewContent(value: content)
+                viewModel.saveNote(content: content)
                 content = ""
             } label: {
                 Text("Save To Your Notes List")
@@ -51,12 +47,12 @@ struct AddNoteView: View {
         }
         .padding()
         .background(
-            LinearGradient(gradient: Gradient(stops: [
-                Gradient.Stop(color: .white, location: 0.00),
-                Gradient.Stop(color: Color(red:0.88, green: 0.89, blue: 0.99), location: 1.00)
-            ])
-                           , startPoint: .top
-                           , endPoint: .bottom )
+            LinearGradient(gradient: Gradient(
+                stops: [
+                    Gradient.Stop(color: .white, location: 0.00),
+                    Gradient.Stop(color: Color(red:0.88, green: 0.89, blue: 0.99), location: 1.00)
+                ]
+            ), startPoint: .top , endPoint: .bottom )
         )
     }
 }

@@ -6,33 +6,13 @@
 //
 
 import Foundation
-import FirebaseDatabase
-import FirebaseDatabaseSwift
 
 class NoteListViewModel: ObservableObject {
+    @Published var noteList: [Note] = []
     
-    private let ref = Database.database().reference()
-    
-    @Published
-    var content: Content? = nil
-    
-    @Published
-    var listContents = [Content]()
-    
-    init(){
-        observerListContent()
-    }
-    
-    func observerListContent(){
-        ref.observe(.value) { parentSnapshot in
-            guard let children = parentSnapshot.children.allObjects as? [DataSnapshot] else {
-                // incase it not
-                return
-            }
-            
-            self.listContents = children.compactMap({ snapshot in
-                return try? snapshot.data(as: Content.self)
-            })
+    func getNoteList() {
+        FirebaseDatabase.shared.getNoteList { noteList in
+            self.noteList = noteList
         }
     }
 }
