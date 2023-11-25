@@ -17,14 +17,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct HoangAnhNotesApp: App {
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//            AddNoteView()
-            ListContentNotesView()
+            NoteListView()
         }
     }
 }
