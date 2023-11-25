@@ -16,15 +16,20 @@ struct AddNoteView: View {
     var content: String = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            Text(viewModel.getCurrentDate())
+                .font(.system(size: 20))
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+            
             TextEditor(text: $content)
                 .disableAutocorrection(true)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .padding()
+                .padding(.horizontal, 10)
+                .padding(.bottom, 30)
 //                .background(Color.black.opacity(0.08))
                 .shadow(radius: 9)
                 .foregroundColor(Color.gray)
-                .padding()
             
             Button {
                 viewModel.saveNewContent(value: content)
@@ -44,6 +49,7 @@ struct AddNoteView: View {
             }
             .padding(.horizontal,20)
         }
+        .padding()
         .background(
             LinearGradient(gradient: Gradient(stops: [
                 Gradient.Stop(color: .white, location: 0.00),
