@@ -19,12 +19,9 @@ class AddNoteViewModel: ObservableObject {
         content.id = String(number)
         content.value = value
         content.date = getCurrentDate()
-        
         ref.childByAutoId().setValue(content.toDictionnary)
-        
         number+=1
     }
-    
     
     func getCurrentDate() -> String {
         let currentDate = Date()
@@ -32,5 +29,4 @@ class AddNoteViewModel: ObservableObject {
         formatter.dateStyle = .long
         return formatter.string(from: currentDate)
     }
-    
 }

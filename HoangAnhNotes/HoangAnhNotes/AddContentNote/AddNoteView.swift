@@ -41,7 +41,6 @@ struct AddNoteView: View {
                         RoundedRectangle(cornerRadius: 80)
                             .stroke(Color.black, lineWidth: 0.5)
                     )
-                
             }
             .padding(.horizontal,20)
         }
