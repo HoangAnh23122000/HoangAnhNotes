@@ -16,7 +16,7 @@ struct NoteListView: View {
                 if !viewModel.noteList.isEmpty {
                     ScrollView {
                         LazyVStack(spacing: 15) {
-                            ForEach(viewModel.noteList.indices, id: \.self) { index in
+                            ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
                                 noteItem(viewModel.noteList[index])
                             }
                         }

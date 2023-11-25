@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseDatabaseSwift
+import FirebaseDatabaseInternal
 
 class FirebaseDatabase {
     static let shared = FirebaseDatabase()

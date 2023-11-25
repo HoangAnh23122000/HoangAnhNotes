@@ -8,12 +8,7 @@
 import Foundation
 
 class AddNoteViewModel: ObservableObject {
-    let currentDateString: String = {
-        let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        return formatter.string(from: currentDate)
-    }()
+    let currentDateString = Date.currentDateString
 
     func saveNote(content: String) {
         FirebaseDatabase.shared.saveNote(content: content, date: currentDateString)

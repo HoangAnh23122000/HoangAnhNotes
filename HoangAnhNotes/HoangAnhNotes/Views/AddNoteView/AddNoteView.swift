@@ -10,6 +10,7 @@ import SwiftUI
 struct AddNoteView: View {
     @StateObject private var viewModel = AddNoteViewModel()
     @State private var content = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(spacing: 0) {
@@ -30,13 +31,14 @@ struct AddNoteView: View {
             Button {
                 viewModel.saveNote(content: content)
                 content = ""
+                dismiss()
             } label: {
                 Text("Save To Your Notes List")
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.vertical, 10)
                     .frame(minWidth: 0, maxWidth: .infinity,minHeight: 50, maxHeight: 50)
-                    .background(Color.purple)
+                    .background(content.isEmpty ? Color.gray : Color.purple)
                     .cornerRadius(80)
                     .overlay(
                         RoundedRectangle(cornerRadius: 80)
@@ -44,6 +46,7 @@ struct AddNoteView: View {
                     )
             }
             .padding(.horizontal,20)
+            .disabled(content.isEmpty)
         }
         .padding()
         .background(
