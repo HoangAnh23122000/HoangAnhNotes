@@ -10,14 +10,16 @@ import Foundation
 class Content: Encodable, Decodable, Hashable {
     var id: String = ""
     var value: String = ""
+    var date: String = ""
     
     static func == (lhs: Content, rhs: Content) -> Bool {
-        return lhs.id == rhs.id && lhs.value == rhs.value
+        return lhs.id == rhs.id && lhs.value == rhs.value && lhs.date == rhs.date
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
         hasher.combine(value)
+        hasher.combine(date)
     }
 }
 

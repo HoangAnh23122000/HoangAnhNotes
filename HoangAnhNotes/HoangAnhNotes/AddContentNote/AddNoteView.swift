@@ -21,16 +21,17 @@ struct AddNoteView: View {
                 .disableAutocorrection(true)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 .padding()
-                .background(Color.black.opacity(0.08))
+//                .background(Color.black.opacity(0.08))
+                .shadow(radius: 9)
                 .foregroundColor(Color.gray)
                 .padding()
             
             Button {
                 viewModel.saveNewContent(value: content)
-                
                 content = ""
             } label: {
                 Text("Save To Your Notes List")
+                    .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.vertical, 10)
                     .frame(minWidth: 0, maxWidth: .infinity,minHeight: 50, maxHeight: 50)
