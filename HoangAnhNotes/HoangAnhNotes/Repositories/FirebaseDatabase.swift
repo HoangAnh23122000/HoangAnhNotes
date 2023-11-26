@@ -10,7 +10,13 @@ import FirebaseDatabase
 import FirebaseDatabaseSwift
 import FirebaseDatabaseInternal
 
-class FirebaseDatabase {
+protocol FirebaseDatabaseProtocol {
+    func getNoteList(completion: @escaping ([Note]) -> Void)
+    func saveNote(content: String, date: String)
+    func deleteNote(withId noteId: String)
+}
+
+class FirebaseDatabase: FirebaseDatabaseProtocol {
     static let shared = FirebaseDatabase()
     private init() {}
     

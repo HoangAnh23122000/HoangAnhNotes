@@ -8,9 +8,14 @@
 import Foundation
 
 class AddNoteViewModel: ObservableObject {
+    private let firebaseDatabase: FirebaseDatabaseProtocol
     let currentDateString = Date.currentDateString
 
+    init(firebaseDatabase: FirebaseDatabaseProtocol = FirebaseDatabase.shared) {
+        self.firebaseDatabase = firebaseDatabase
+    }
+
     func saveNote(content: String) {
-        FirebaseDatabase.shared.saveNote(content: content, date: currentDateString)
+        firebaseDatabase.saveNote(content: content, date: currentDateString)
     }
 }

@@ -8,15 +8,20 @@
 import Foundation
 
 class NoteListViewModel: ObservableObject {
+    private let firebaseDatabase: FirebaseDatabaseProtocol
     @Published var noteList: [Note] = []
     
+    init(firebaseDatabase: FirebaseDatabaseProtocol = FirebaseDatabase.shared) {
+        self.firebaseDatabase = firebaseDatabase
+    }
+    
     func getNoteList() {
-        FirebaseDatabase.shared.getNoteList { noteList in
+        firebaseDatabase.getNoteList { noteList in
             self.noteList = noteList
         }
     }
     
     func deleteNote(_ note: Note) {
-        FirebaseDatabase.shared.deleteNote(withId: note.id)
+        firebaseDatabase.deleteNote(withId: note.id)
     }
 }
