@@ -14,22 +14,20 @@ struct NoteListView: View {
         NavigationView {
             VStack {
                 if !viewModel.noteList.isEmpty {
-                    ScrollView {
-                        LazyVStack(spacing: 15) {
-                            ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
-                                noteItem(viewModel.noteList[index])
-                                    .contextMenu{
-                                        Button {
-                                            viewModel.deleteNote(at: index)
-                                        } label: {
-                                            Text("Delete")
-                                            Image(systemName: "trash")
-                                        }
-
-                                    }
-                            }
+                    List {
+                        ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
+                            let note = viewModel.noteList[index]
+                            noteItem(note)
+                                .listRowSeparator(.hidden)
+                                .listRowBackground(Color.clear)
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive, action: {
+                                        viewModel.deleteNote(note)
+                                    }, label: {
+                                        Label("Delete", systemImage: "trash")
+                                    })
+                                }
                         }
-                        .padding()
                     }
                 }
             }
@@ -37,8 +35,14 @@ struct NoteListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: AddNoteView()) {
-                        Text("Add Note")
-                            .foregroundColor(Color.black)
+                        HStack(spacing: 3){
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width: 13, height: 13)
+                            Text("Add Note")
+                                .foregroundColor(Color.black)
+                            
+                        }
                     }
                 }
             }
