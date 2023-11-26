@@ -31,16 +31,18 @@ struct NoteListView: View {
                     }
                 }
             }
-            .navigationBarTitle("Your Note List", displayMode: .inline)
+            .navigationBarTitle("My Note List", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: AddNoteView()) {
                         HStack(spacing: 3){
                             Image(systemName: "plus")
                                 .resizable()
-                                .frame(width: 13, height: 13)
-                            Text("Add Note")
-                                .foregroundColor(Color.black)
+                                .frame(width: 17, height: 17)
+                                .foregroundColor(Color.purple)
+                                .padding()
+//                            Text("Add Note")
+//                                .foregroundColor(Color.black)
                             
                         }
                     }
@@ -62,7 +64,7 @@ struct NoteListView: View {
     }
     
     private func noteItem(_ note: Note) -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: -5) {
             Text(note.date)
                 .font(.system(size: 15))
                 .frame(alignment: .leading)
@@ -73,15 +75,17 @@ struct NoteListView: View {
             Text(note.content)
                 .font(.system(size: 15))
                 .foregroundColor(Color(red:0.43, green: 0.46, blue: 0.57))
-                .padding(.horizontal, 5)
-                .padding(.trailing, 10)
+//                .padding(.horizontal, 5)
+//                .padding(.trailing, 10)
+//                .padding(.vertical, 10)
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .background(Color.white)
                 .cornerRadius(10)
                 .lineLimit(nil)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 0.5)
+                        .stroke(Color.gray, lineWidth: 0.5)
                 )
             Spacer()
         }
