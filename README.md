@@ -10,4 +10,5 @@
 - Handle logic, database processing and fix bug : 1.5 day
 - Write tests, clean code and write docs: 1 day
 
-# 3. Design Pattern & Technology
+# 3. Design Pattern 
+- Applying the MVVM in app notes makes it easiter to manage application development and maintenance
