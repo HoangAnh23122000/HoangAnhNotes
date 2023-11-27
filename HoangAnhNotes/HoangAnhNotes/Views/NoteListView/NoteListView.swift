@@ -18,6 +18,7 @@ struct NoteListView: View {
                         ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
                             let note = viewModel.noteList[index]
                             noteItem(note)
+                                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                                 .listRowSeparator(.hidden)
                                 .listRowBackground(Color.clear)
                                 .swipeActions(edge: .trailing) {
@@ -41,9 +42,6 @@ struct NoteListView: View {
                                 .frame(width: 17, height: 17)
                                 .foregroundColor(Color.purple)
                                 .padding()
-//                            Text("Add Note")
-//                                .foregroundColor(Color.black)
-                            
                         }
                     }
                 }
@@ -62,23 +60,18 @@ struct NoteListView: View {
             viewModel.getNoteList()
         }
     }
-    
+        
     private func noteItem(_ note: Note) -> some View {
-        VStack(alignment: .leading, spacing: -5) {
+        VStack(alignment: .leading, spacing: 8) {
             Text(note.date)
                 .font(.system(size: 15))
                 .frame(alignment: .leading)
                 .padding(.leading, 5)
-
-            Spacer()
             
             Text(note.content)
                 .font(.system(size: 15))
                 .foregroundColor(Color(red:0.43, green: 0.46, blue: 0.57))
-//                .padding(.horizontal, 5)
-//                .padding(.trailing, 10)
-//                .padding(.vertical, 10)
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 8))
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .background(Color.white)
                 .cornerRadius(10)
@@ -87,7 +80,6 @@ struct NoteListView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.gray, lineWidth: 0.5)
                 )
-            Spacer()
         }
     }
 }

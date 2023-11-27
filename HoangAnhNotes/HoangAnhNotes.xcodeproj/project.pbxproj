@@ -248,20 +248,20 @@
 			path = AddNoteView;
 			sourceTree = "<group>";
 		};
-		1EB9BB592B0FBC7A00B72EA8 /* ListContentNotes */ = {
+		1EB9BB592B0FBC7A00B72EA8 /* NoteListView */ = {
 			isa = PBXGroup;
 			children = (
 				1EB9BB5A2B0FBC9B00B72EA8 /* NoteListView.swift */,
 				1EB9BB5C2B0FBCAD00B72EA8 /* NoteListViewModel.swift */,
 			);
-			path = ListContentNotes;
+			path = NoteListView;
 			sourceTree = "<group>";
 		};
 		1EEC83742B12236A00EF4080 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1EB9BADF2B0F4F6C00B72EA8 /* AddNoteView */,
-				1EB9BB592B0FBC7A00B72EA8 /* ListContentNotes */,
+				1EB9BB592B0FBC7A00B72EA8 /* NoteListView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
