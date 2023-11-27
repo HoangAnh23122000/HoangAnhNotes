@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E4EE6932B122994009659A4 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EE6922B122994009659A4 /* Note.swift */; };
 		1E4EE6972B123867009659A4 /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EE6962B123867009659A4 /* FirebaseDatabase.swift */; };
 		1E4EE69E2B124365009659A4 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EE69D2B124365009659A4 /* Date+.swift */; };
 		1E4EE6A22B12FE78009659A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4EE6A12B12FE78009659A4 /* FirebaseAnalytics */; };
@@ -37,6 +36,7 @@
 		1E4EE6D22B12FE78009659A4 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4EE6D12B12FE78009659A4 /* FirebaseRemoteConfigSwift */; };
 		1E4EE6D42B12FE78009659A4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4EE6D32B12FE78009659A4 /* FirebaseStorage */; };
 		1E4EE6D62B12FE78009659A4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4EE6D52B12FE78009659A4 /* FirebaseStorageCombine-Community */; };
+		1E4EE6E42B14C219009659A4 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EE6E32B14C219009659A4 /* Note.swift */; };
 		1E7BD6992B0E35B300BA7B85 /* HoangAnhNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7BD6982B0E35B300BA7B85 /* HoangAnhNotesApp.swift */; };
 		1E7BD69D2B0E35B700BA7B85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7BD69C2B0E35B700BA7B85 /* Assets.xcassets */; };
 		1E7BD6A02B0E35B700BA7B85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7BD69F2B0E35B700BA7B85 /* Preview Assets.xcassets */; };
@@ -72,9 +72,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E4EE6922B122994009659A4 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = HoangAnhNotes/Views/ListContentNotes/Note.swift; sourceTree = SOURCE_ROOT; };
 		1E4EE6962B123867009659A4 /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		1E4EE69D2B124365009659A4 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		1E4EE6E32B14C219009659A4 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1E7BD6952B0E35B300BA7B85 /* HoangAnhNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoangAnhNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7BD6982B0E35B300BA7B85 /* HoangAnhNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoangAnhNotesApp.swift; sourceTree = "<group>"; };
 		1E7BD69C2B0E35B700BA7B85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,14 +147,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E4EE68F2B122926009659A4 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1E4EE6922B122994009659A4 /* Note.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		1E4EE6952B123849009659A4 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +168,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E4EE6E22B14C209009659A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EE6E32B14C219009659A4 /* Note.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1E7BD68C2B0E35B300BA7B85 = {
@@ -206,7 +206,7 @@
 				1E7BD6982B0E35B300BA7B85 /* HoangAnhNotesApp.swift */,
 				1E7BD69C2B0E35B700BA7B85 /* Assets.xcassets */,
 				1EEC83742B12236A00EF4080 /* Views */,
-				1E4EE68F2B122926009659A4 /* Models */,
+				1E4EE6E22B14C209009659A4 /* Models */,
 				1E4EE6952B123849009659A4 /* Repositories */,
 				1E4EE69C2B124355009659A4 /* Extensions */,
 				1E7BD69E2B0E35B700BA7B85 /* Preview Content */,
@@ -437,8 +437,8 @@
 			files = (
 				1EB9BAE32B0F4FD000B72EA8 /* AddNoteViewModel.swift in Sources */,
 				1EB9BAE12B0F4F9900B72EA8 /* AddNoteView.swift in Sources */,
-				1E4EE6932B122994009659A4 /* Note.swift in Sources */,
 				1EB9BB5B2B0FBC9B00B72EA8 /* NoteListView.swift in Sources */,
+				1E4EE6E42B14C219009659A4 /* Note.swift in Sources */,
 				1E7BD6992B0E35B300BA7B85 /* HoangAnhNotesApp.swift in Sources */,
 				1E4EE6972B123867009659A4 /* FirebaseDatabase.swift in Sources */,
 				1EB9BB5D2B0FBCAD00B72EA8 /* NoteListViewModel.swift in Sources */,
