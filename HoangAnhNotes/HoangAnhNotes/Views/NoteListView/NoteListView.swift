@@ -9,6 +9,9 @@ import SwiftUI
 
 struct NoteListView: View {
     @StateObject private var viewModel = NoteListViewModel()
+    @State private var selectIndex: Int?
+    @Binding var username: String
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
@@ -17,22 +20,31 @@ struct NoteListView: View {
                     List {
                         ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
                             let note = viewModel.noteList[index]
-                            noteItem(note)
-                                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                                .listRowSeparator(.hidden)
-                                .listRowBackground(Color.clear)
-                                .swipeActions(edge: .trailing) {
-                                    Button(role: .destructive, action: {
-                                        viewModel.deleteNote(note)
-                                    }, label: {
-                                        Label("Delete", systemImage: "trash")
-                                    })
-                                }
+                            NavigationLink(destination: DetailView(content: note, editContent: noteItem(note) as! Binding<String>), tag: index, selection: $selectIndex){
+                                noteItem(note)
+                                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                                    .listRowSeparator(.hidden)
+                                    .listRowBackground(Color.clear)
+                                    .swipeActions(edge: .trailing) {
+                                        Button(role: .destructive, action: {
+                                            viewModel.deleteNote(note)
+                                        }, label: {
+                                            Label("Delete", systemImage: "trash")
+                                        })
+                                    }
+                            }
                         }
                     }
                 }
             }
             .navigationBarTitle("My Note List", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: {
+                dismiss()
+            }, label: {
+                Text("Name:\(username)")
+                    .foregroundColor(.gray)
+            }))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: AddNoteView()) {
@@ -84,8 +96,9 @@ struct NoteListView: View {
     }
 }
 
-struct NoteListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NoteListView()
-    }
-}
+//
+//struct NoteListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NoteListView()
+//    }
+//}
