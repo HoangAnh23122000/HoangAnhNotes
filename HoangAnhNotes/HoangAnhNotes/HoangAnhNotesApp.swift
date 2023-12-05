@@ -18,10 +18,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct HoangAnhNotesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @State private var userName: String = ""
     
     var body: some Scene {
         WindowGroup {
-            NoteListView()
+//            NoteListView()
+            UserView(userName: $userName)
         }
     }
 }

@@ -1,0 +1,64 @@
+//
+//  DetailView.swift
+//  HoangAnhNotes
+//
+//  Created by Hoang Anh on 02/12/2023.
+//
+
+import SwiftUI
+
+struct DetailView: View {
+    
+    var content: Note
+    
+    @Binding var editContent: String
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        VStack {
+            TextEditor(text: $editContent)
+                .frame(minHeight: 200)
+                .padding()
+            
+            Button {
+//                saveContent()
+                dismiss()
+            } label: {
+                Text("Save content")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .padding(.vertical, 10)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: 50)
+                    .background(Color.purple)
+                    .cornerRadius(80)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 80)
+                            .stroke(Color.black, lineWidth: 0.5)
+                    }
+            }
+            .padding(.horizontal, 20)
+            
+        }
+        .padding()
+        .onAppear {
+            editContent = content.content
+        }
+//        .onDisappear{
+//            if let saveContent = UserDefaults.standard.string(forKey: "editContent") {
+//                self.editContent = saveContent
+//            }
+//        }
+        .navigationBarTitle("Detail View")
+        
+    }
+    
+    func saveContent() {
+        UserDefaults.standard.set(editContent, forKey: "editContent")
+    }
+}
+
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView(content: Note)
+//    }
+//}
