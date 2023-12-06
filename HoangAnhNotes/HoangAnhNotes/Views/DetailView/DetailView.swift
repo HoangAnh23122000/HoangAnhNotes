@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DetailView: View {
+//    var content: Note
+//    @Binding var editContent: String
+    @Binding var note: Note
     
-    var content: Note
-    
-    @Binding var editContent: String
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
-            TextEditor(text: $editContent)
+            TextEditor(text: $note.content)
                 .frame(minHeight: 200)
                 .padding()
             
@@ -39,9 +39,6 @@ struct DetailView: View {
             
         }
         .padding()
-//        .onAppear {
-//            editContent = content.content
-//        }
         .navigationBarTitle("Detail View")
         
     }

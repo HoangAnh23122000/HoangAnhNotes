@@ -20,7 +20,8 @@ struct NoteListView: View {
                     List {
                         ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
                             let note = viewModel.noteList[index]
-                            NavigationLink(destination: DetailView(content: note, editContent: note.content as! Binding<String> ), tag: index,
+                            NavigationLink(destination: DetailView(note: $viewModel.noteList[index]),
+                                           tag: index,
                                            selection: $selectIndex){
                                 noteItem(note)
                                     .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
