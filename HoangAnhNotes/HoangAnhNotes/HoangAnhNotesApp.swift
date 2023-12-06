@@ -23,7 +23,8 @@ struct HoangAnhNotesApp: App {
     var body: some Scene {
         WindowGroup {
 //            NoteListView()
-            UserView(userName: $userName)
+//            UserView(userName: $userName)
+            AuthView()
         }
     }
 }
