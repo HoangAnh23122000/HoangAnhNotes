@@ -20,7 +20,8 @@ struct NoteListView: View {
                     List {
                         ForEach(viewModel.noteList.indices.reversed(), id: \.self) { index in
                             let note = viewModel.noteList[index]
-                            NavigationLink(destination: DetailView(content: note, editContent: noteItem(note) as! Binding<String>), tag: index, selection: $selectIndex){
+                            NavigationLink(destination: DetailView(content: note, editContent: note.content as! Binding<String> ), tag: index,
+                                           selection: $selectIndex){
                                 noteItem(note)
                                     .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                                     .listRowSeparator(.hidden)
@@ -72,7 +73,7 @@ struct NoteListView: View {
             viewModel.getNoteList()
         }
     }
-        
+    
     private func noteItem(_ note: Note) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(note.date)

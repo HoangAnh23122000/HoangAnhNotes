@@ -21,7 +21,6 @@ struct DetailView: View {
                 .padding()
             
             Button {
-//                saveContent()
                 dismiss()
             } label: {
                 Text("Save content")
@@ -40,20 +39,11 @@ struct DetailView: View {
             
         }
         .padding()
-        .onAppear {
-            editContent = content.content
-        }
-//        .onDisappear{
-//            if let saveContent = UserDefaults.standard.string(forKey: "editContent") {
-//                self.editContent = saveContent
-//            }
+//        .onAppear {
+//            editContent = content.content
 //        }
         .navigationBarTitle("Detail View")
         
-    }
-    
-    func saveContent() {
-        UserDefaults.standard.set(editContent, forKey: "editContent")
     }
 }
 
