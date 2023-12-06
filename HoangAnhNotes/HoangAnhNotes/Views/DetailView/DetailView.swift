@@ -39,9 +39,6 @@ struct DetailView: View {
             
         }
         .padding()
-//        .onAppear {
-//            editContent = content.content
-//        }
         .navigationBarTitle("Detail View")
         
     }
