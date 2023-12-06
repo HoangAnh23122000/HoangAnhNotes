@@ -9,7 +9,7 @@ import Foundation
 
 struct Note: Identifiable, Codable {
     let id: String
-    let content: String
+    var content: String
     let date: String
     
     init(id: String, content: String, date: String) {
